@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
 COPY deploy/nginx/flask.conf /etc/nginx/sites-available/
 COPY deploy/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY app /var/www/app
+COPY requirements.txt /var/www/app/requirements.txt
 
 RUN mkdir -p /var/log/nginx/app /var/log/uwsgi/app /var/log/supervisor \
     && rm /etc/nginx/sites-enabled/default \
